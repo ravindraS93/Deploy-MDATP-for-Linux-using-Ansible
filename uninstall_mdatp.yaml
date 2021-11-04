@@ -1,0 +1,8 @@
+// Following playbook uninstalls MDATP agents from the ansible hosts group you specify
+
+- hosts: <your host group name>
+  become: true
+  tasks:
+   - yum:
+      name: mdatp
+      state: absent
