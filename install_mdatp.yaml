@@ -1,4 +1,4 @@
-// Following playbook installs and onboards MDATP agents from the ansible hosts group you specify
+// Following playbook installs and onboards MDATP agents on the ansible hosts group you specify
 
 - hosts: <your host group name>
   become: true
