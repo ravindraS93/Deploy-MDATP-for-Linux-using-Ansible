@@ -1,1 +1,8 @@
-// Placeholder
+// This play book can be used to roll out exclusions for MDATP for Linux agents
+// mdatp_managed.json need to be updated with respective changes and validated before rolling out the file
+
+- hosts: <your host group name>
+  become: true
+  gather_facts: false
+  tasks:
+   - include: /etc/ansible/roles/mdatp_exclusions.yaml
