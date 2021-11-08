@@ -1,1 +1,24 @@
+// This role can be used to uninstall existing. In my case, it is used for uninstalling Symantec Endpoint protection for Linux agent
+// Make sure the respective files are placed in "/etc/ansible/files/"
 
+// Below task copies the respectives files from the specified source to destination along with assiging them the specified privileges
+
+- name: Copying required files
+  copy:
+   src: /etc/ansible/files/install.sh
+   dest: /tmp
+   mode: 0755
+   owner: root
+   group: root
+
+// Below task executes the specifed command to uninstall the SEPFL agent
+
+- name: Uninstalling SEPFL
+  become: true
+  command: /tmp/install.sh -u
+  
+// Below task will delete the copied files which are no more required
+
+- name: Deleting residual files
+  become: true
+  command: rm -r /tmp/install.sh
