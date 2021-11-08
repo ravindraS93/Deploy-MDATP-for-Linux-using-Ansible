@@ -1,1 +1,25 @@
-// Placeholder
+// This role creates the MDATP directories and places the MDATP onboarding file in the created directories
+// Make sure the onboarding package is downloaded from the Defender ATP portal and placed in /etc/ansible/files
+
+- name: Create MDATP Directories
+  file:
+   path: /etc/opt/microsoft/mdatp/
+   recurse: true
+   state: directory
+   mode: 0755
+   owner: root
+   group: root
+   
+- name: Register mdatp_onboard.json
+  stat:
+   path: /etc/opt/microsoft/mdatp/mdatp_onboard.json
+  register: mdatp_onboard
+  
+- name: Extract the On boarding package
+  unarchive:
+   src: /etc/ansible/files/WindowsDefenderATPOnboardingPackage.zip
+   dest: /etc/opt/microsoft/mdatp
+   mode: 0600
+   owner: root
+   group: root
+  when: not mdatp_onboard.stat.exists
