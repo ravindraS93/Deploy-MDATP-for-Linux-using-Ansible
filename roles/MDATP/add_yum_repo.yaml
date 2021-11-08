@@ -7,7 +7,7 @@
   copy:
    src: /etc/ansible/files/microsoft.asc
    dest: /tmp
-   mode: 0755
+   mode: '0774'
    owner: root
    group: root
 
@@ -20,7 +20,7 @@
   copy:
    src: /etc/ansible/files/packages-microsoft-prod.rpm
    dest: /tmp
-   mode: 0755
+   mode: '0774'
    owner: root
    group: root
    
