@@ -1,10 +1,11 @@
 // Following playbook installs and onboards MDATP agents on the ansible hosts group you specify
+// ypu can include or comment out any role that is not required before executing the playbook
 
 - hosts: <your host group name>
   become: true
   gather_facts: false
   tasks:
-   - include: /etc/ansible/roles/uninstall_existing_AV.yaml // respective roles are called when playbook is executed
+   - include: /etc/ansible/roles/uninstall_existing_AV.yaml
    - include: /etc/ansible/roles/add_yum_repo.yaml
    - include: /etc/ansible/roles/onboarding_mdatp.yaml
    - yum:
