@@ -4,3 +4,8 @@
 // - Scheduled scan
 // - push the agent configuration file which includes - exclusions, scan settings, allowed threats etc
 
+- hosts: <your host group name>
+  become: true
+  gather_facts: false
+  tasks:
+   - include: /etc/ansible/roles/config_mdatp.yaml
