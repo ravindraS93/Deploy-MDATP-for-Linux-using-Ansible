@@ -6,6 +6,7 @@
   tasks:
    - include: /etc/ansible/roles/uninstall_existing_AV.yaml // respective roles are called when playbook is executed
    - include: /etc/ansible/roles/add_yum_repo.yaml
+   - include: /etc/ansible/roles/onboarding_mdatp.yaml
    - yum:
       name: mdatp
       state: latest
