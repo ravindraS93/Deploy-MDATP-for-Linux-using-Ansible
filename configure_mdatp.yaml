@@ -1,0 +1,6 @@
+// This playbook is dedicated to completely configure the MDATP agent
+// You can configure below aspects of the agent
+// - On board the agent to ATP portal
+// - Scheduled scan
+// - push the agent configuration file which includes - exclusions, scan settings, allowed threats etc
+
