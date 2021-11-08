@@ -7,7 +7,7 @@
   copy:
    src: /etc/ansible/files/install.sh
    dest: /tmp
-   mode: 0755
+   mode: '0774'
    owner: root
    group: root
 
