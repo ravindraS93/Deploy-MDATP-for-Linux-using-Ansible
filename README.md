@@ -39,7 +39,7 @@ The playbooks are indented to do the following tasks:
    - [Microsoft GPG Public Key](https://packages.microsoft.com/keys/microsoft.asc)
    - [Microsoft Prod repository (RHEL 7.4)](https://packages.microsoft.com/config/rhel/7.4/packages-microsoft-prod.rpm)
    - Configuration file - **mdatp_managed.json**
-   - 
+
 **NOTE:** refer the comments in playbooks / roles for additional requirements
 
 ## How to use the playbooks?
