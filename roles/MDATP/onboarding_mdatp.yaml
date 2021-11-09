@@ -1,5 +1,5 @@
-// This role creates the MDATP directories and places the MDATP onboarding file in the created directories
-// Make sure the onboarding package is downloaded from the Defender ATP portal and placed in /etc/ansible/files
+## This role creates the MDATP directories and places the MDATP onboarding file in the created directories
+## Make sure the onboarding package is downloaded from the Defender ATP portal and placed in /etc/ansible/files
 
 - name: Create MDATP Directories
   file:
