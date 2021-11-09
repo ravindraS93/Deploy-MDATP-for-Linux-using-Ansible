@@ -27,7 +27,7 @@ The playbooks are indented to do the following tasks:
 ## List of Roles:
 1. **Uninstall_SEP.yaml**
 2. **Add_YUM_Repo.yaml**
-3. **Onboarding_setup.yaml**
+3. **Onboarding_mdatp.yaml**
 4. **Config_MDATP.yam**
 
 # Instructions
