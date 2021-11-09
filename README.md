@@ -35,6 +35,12 @@ The playbooks are indented to do the following tasks:
 ## Pre-requsites
 1. Make sure your ansible server has ssh connectivty to the nodes you want to deploy
 2. Make sure the required files are placed in **/etc/ansible/files**
+   - [Defender on boarding package for Linux](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide#download-the-onboarding-package)
+   - [Microsoft GPG Public Key](https://packages.microsoft.com/keys/microsoft.asc)
+   - [Microsoft Prod repository (RHEL 7.4)](https://packages.microsoft.com/config/rhel/7.4/packages-microsoft-prod.rpm)
+   - Configuration file - **mdatp_managed.json**
+   - 
+**NOTE:** refer the comments in playbooks / roles for additional requirements
 
 ## How to use the playbooks?
 ### For a new deployment
