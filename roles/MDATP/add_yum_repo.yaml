@@ -1,7 +1,7 @@
-// This role is used to setup the Microsoft prod repo prior to installing the MDATP agent on Linux
-// Download and place the below files in /etc/ansible/files
-// Microsoft GPG Public Key - https://packages.microsoft.com/keys/microsoft.asc
-// Microsoft Prod repository (RHEL 7.4) - https://packages.microsoft.com/config/rhel/7.4/packages-microsoft-prod.rpm
+## This role is used to setup the Microsoft prod repo prior to installing the MDATP agent on Linux
+## Download and place the below files in /etc/ansible/files
+## Microsoft GPG Public Key - https://packages.microsoft.com/keys/microsoft.asc
+## Microsoft Prod repository (RHEL 7.4) - https://packages.microsoft.com/config/rhel/7.4/packages-microsoft-prod.rpm
 
 - name: Copying Microsoft GPG key
   copy:
