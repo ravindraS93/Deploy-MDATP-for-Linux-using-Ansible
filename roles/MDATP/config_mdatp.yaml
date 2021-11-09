@@ -1,1 +1,39 @@
+// Use this role for the intial configuration of MDATP agent post deployment
+// Make sure the mdatp_managed.json file is configured as per your environment and is placed in /etc/ansible/files/
 
+- name: Checking for existing mdatp_managed.json
+  stat: 
+   path: /etc/opt/microsoft/mdatp/managed/mdatp_managed.json
+  register: mdatp_managed
+  
+- name: Deleting existing mdatp_managed.json
+  file:
+   path: /etc/opt/microsoft/mdatp/managed/mdatp_managed.json
+   state: absent
+  when: mdatp_managed.stat.exists
+ 
+- name: Copying new configuration file into /etc/opt/microsoft/mdatp/managed/
+  copy:
+   src: /etc/ansible/files/mdatp_managed.json
+   dest: /etc/opt/microsoft/mdatp/managed/
+   mode: 0600
+   owner: root
+   group: root
+   
+- name: Restarting MDATP service
+  shell: systemctl restart mdatp
+   
+- name: Setting Daily quick scan
+  ansible.builtin.cron:
+   name: "Daily Quick Scan"
+   minute: "0"
+   hour: "9"
+   job: "/bin/mdatp scan quick > /var/logs/mdatp_cron_job_quick_scan.log"
+
+- name: Setting Weekly full scan
+  ansible.builtin.cron:
+   name: "Weekly Full Scan"
+   minute: "0"
+   hour: "10"
+   weekday: "0"
+   job: "/bin/mdatp scan full > /var/logs/mdatp_cron_job_full_scan.log"
