@@ -1,4 +1,7 @@
+![Deploy-MDATP-for-Linux-using-Ansible](https://user-images.githubusercontent.com/93694572/140914355-5a1eb74a-06d9-49d9-9579-c34bf5ac1bd4.png)
+
 # Deploy-MDATP-for-Linux-using-Ansible
+
 Following ansible playbooks help address the deployment and configuration of MDATP for Linux agents using Ansible.
 
 **NOTE:** 
