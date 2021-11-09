@@ -1,16 +1,17 @@
 // Following playbook installs and onboards MDATP agents on the ansible hosts group you specify
-// ypu can include or comment out any role that is not required before executing the playbook
+// You can include or comment out any role that is not required before executing the playbook
 
 - hosts: <your host group name>
   become: true
   gather_facts: false
   tasks:
    - include: /etc/ansible/roles/uninstall_existing_AV.yaml
-   - include: /etc/ansible/roles/add_yum_repo.yaml
    - include: /etc/ansible/roles/onboarding_mdatp.yaml
-   - yum:
+   - include: /etc/ansible/roles/add_yum_repo.yaml
+   - name: Installing MDATP
+     yum:
       name: mdatp
       state: latest
-     environment:   // Use this in case your servers reach internet via proxy. Else comment out using "#"
+     environment:   // Use following parameter in case your servers reach internet via proxy. Else comment out using "#"
       https_proxy: <proxy details>
       http_proxy: <proxy details>
