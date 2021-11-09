@@ -1,7 +1,7 @@
 # Deploy-MDATP-for-Linux-using-Ansible
 Following ansible playbooks help address the deployment and configuration of MDATP for Linux agents using Ansible.
 
-NOTE: 
+**NOTE:** 
 1. You need to have a basic understanding of how Ansible works
 2. These playbooks are intended for Linux workloads
 3. Tested with RHEL 7 (please do a test run for any other flavours of Linux)
