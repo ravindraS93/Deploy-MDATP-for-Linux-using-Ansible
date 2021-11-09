@@ -1,4 +1,5 @@
 // Use this role for the intial configuration of MDATP agent post deployment
+// This roles pushes the mdatp_managed.json file to the specified hosts and also configures the daily quick scan and weekly full scan
 // Make sure the mdatp_managed.json file is configured as per your environment and is placed in /etc/ansible/files/
 
 - name: Checking for existing mdatp_managed.json
