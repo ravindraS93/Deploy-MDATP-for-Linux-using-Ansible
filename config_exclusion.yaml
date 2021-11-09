@@ -5,4 +5,24 @@
   become: true
   gather_facts: false
   tasks:
-   - include: /etc/ansible/roles/mdatp_exclusions.yaml
+   - name: Checking for existing mdatp_managed.json
+     stat: 
+      path: /etc/opt/microsoft/mdatp/managed/mdatp_managed.json
+     register: mdatp_managed
+     
+   - name: Deleting existing mdatp_managed.json
+     file:
+      path: /etc/opt/microsoft/mdatp/managed/mdatp_managed.json
+      state: absent
+     when: mdatp_managed.stat.exists
+       
+   - name: Copying new configuration file into /etc/opt/microsoft/mdatp/managed/
+     copy:
+      src: /etc/ansible/files/mdatp_managed.json
+      dest: /etc/opt/microsoft/mdatp/managed/
+      mode: 0600
+      owner: root
+      group: root
+     
+   - name: Restarting MDATP service
+     shell: systemctl restart mdatp
